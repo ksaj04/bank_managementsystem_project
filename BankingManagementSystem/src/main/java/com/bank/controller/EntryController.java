@@ -69,13 +69,13 @@ public class EntryController {
 	@RequestMapping("/")
 	public ModelAndView entryRequest(Model model) {
 		System.out.println("////");
-		return new ModelAndView("Home");
+		return new ModelAndView("index");
 	}
 
 	@RequestMapping("/login")
 	public ModelAndView loginPage(Model model) {
 
-		return new ModelAndView("Home");
+		return new ModelAndView("index");
 	}
 
 	@RequestMapping("/accountinfo")
@@ -369,7 +369,7 @@ public class EntryController {
 				if (user.getCustid() == regid && user.getPassword().equals(password)) {
 					if (user.getStatus().equals("inactive")) {
 						model.addAttribute("message", "InActive User PLease Contact Admin");
-						return new ModelAndView("Home");
+						return new ModelAndView("index");
 					} else {
 						userinfo = user;
 						System.out.println("user name=" + userinfo.getName());
@@ -386,11 +386,11 @@ public class EntryController {
 		} catch (Exception e) {
 
 			model.addAttribute("message", "invalid username or password");
-			return new ModelAndView("Home");
+			return new ModelAndView("index");
 		}
 
 		model.addAttribute("message", "User Not Found");
-		return new ModelAndView("Home");
+		return new ModelAndView("index");
 
 	}
 
